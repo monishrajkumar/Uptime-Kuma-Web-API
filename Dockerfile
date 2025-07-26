@@ -1,5 +1,5 @@
 # First stage: Build environment
-FROM python:3.9-alpine AS builder
+FROM python:3.14.0rc1-alpine AS builder
 
 # Create a new user and group to run the app under, the user should have a shell
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup -s /bin/sh
@@ -30,7 +30,7 @@ USER appuser
 
 
 # Second stage: Runtime environment
-FROM python:3.9-alpine
+FROM python:3.14.0rc1-alpine
 
 # Create a new user and group to run the app under, the user should have a shell
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup -s /bin/sh
